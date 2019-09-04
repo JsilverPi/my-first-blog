@@ -1,0 +1,29 @@
+.breadcrumb {
+  padding-left:0;
+  margin-left:0;
+}
+
+.breadcrumb li{
+  display:inline;/*‰¡‚É•À‚Ô‚æ‚¤‚É*/
+  list-style: none;
+  font-weight: normal;/*‘¾š bold*/
+}
+
+.breadcrumb li:after{/* > */
+  content: '->';
+  padding: 0 3px;
+  color: #000;
+}
+
+.breadcrumb li:last-child:after{
+  content: '';
+}
+
+.breadcrumb li a {
+    text-decoration: none;
+    color: #000000;/*F*/
+}
+
+.breadcrumb li a:hover {
+    text-decoration: underline;
+}

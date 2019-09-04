@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
+{% load  static  %}
 
 {% block content %}
   <div class="content_container">
@@ -6,12 +7,16 @@
     <div class="col-mod-8" >
   {% for post in posts  %}
     <div class="post">
+      <h1><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h1>
       <div class="date">
          <p>published: {{ post.published_date}} </p>
       </div>
-      <h1><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h1>
-      <p>{{post.text|linebreaksbr}}</p>
-      <img src="/static/{{post.pk}}.png" >
+      <p>
+      <a  href="{% url 'post_detail' pk=post.pk %}">
+      <img src="/static/ic-{{post.file_name}}" %}" >
+      </a>
+      {{post.abstract|linebreaksbr}}
+      </p>
       <br>
     </div>
   {% endfor %}

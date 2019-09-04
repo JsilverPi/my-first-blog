@@ -18,3 +18,19 @@ class Post(models.Model):
 
 
 # Create your models here.
+class Post_M(models.Model):
+  author = models.ForeignKey('auth.User',on_delete=models.CASCADE)
+  title = models.CharField(max_length=200)
+  abstract=models.TextField();
+  text = models.TextField();
+  create_date=models.DateTimeField(default=timezone.now)
+  published_date = models.DateTimeField(blank=True,null=True)
+  file_name=models.CharField(max_length=30);
+
+  def publish(self):
+     self.published_date=timezone.now()
+     self.save()
+
+  def __str__(self):
+     return  self.title
+

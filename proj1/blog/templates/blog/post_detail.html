@@ -1,7 +1,13 @@
 {% extends 'blog/base.html' %}
 
 {% block content  %}
-
+<ul class="breadcrumb">
+    <li itemscope="itemscope"  >
+       <a href="/"  itemprop="url">
+          <span  itemprop="title">home</span>
+       </a>
+    </li>
+</ul>
   <div  class="post">
      {% if post.published_date %}
           <div class="date">
@@ -12,6 +18,11 @@
 <span class="glyphicon glyphicon-pencil">edit</span></a>
 
      <h1>{{ post.title }} </h1>
-     <p>{{ post.text |linebreaksbr }} </p>
+     <p><img src="/static/{{ post.file_name }}" >
+     {{ post.abstract }}</p>
+     <br> *****<br>
+     {{ post.text |linebreaksbr }} 
+     <br> *****<br>
+     </p>
   </div>
 {% endblock  %}
