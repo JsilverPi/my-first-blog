@@ -10,7 +10,8 @@ from  django.shortcuts import redirect
 
 def post_list(request):
   posts=Post_M.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-  return  render(request,'blog/post_list.html',{'posts': posts})
+  post_last=Post_M.objects.order_by('published_date').last()
+  return  render(request,'blog/post_list.html',{'posts': posts, 'post_last':post_last})
 
 def post_detail(request,pk):
   post=get_object_or_404(Post_M,pk=pk)
