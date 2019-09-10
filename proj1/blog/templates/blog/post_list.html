@@ -5,7 +5,31 @@
   <div class="content_container">
    <div class="row">
     <div class="col-mod-8" >
-   <h1>Exsting</h1>
+
+<div class="post">
+ <div class="term">
+   <h2>latest new</h2>
+ </div>
+   <div class="title">
+      <h2><a href="{% url 'post_detail' pk=post_last.pk %}">{{post_last.title}}</a></h2>
+   </div>
+
+      <div class="date">
+         <p>published: {{ post_last.published_date}} </p>
+      </div>  
+      <p>
+      <a  href="{% url 'post_detail' pk=post_last.pk %}">
+      <img src="/static/ic-{{post_last.file_name}}" %}" >
+      </a>
+        {{post_last.abstract|linebreaksbr}} 
+       <p> -- click the image --</p>
+</div>
+
+<div class="term">
+   <h2>blog archive </h2>
+       <p> -- click the image --</p>
+</div>
+
   {% for post in posts  %}
 <!--  
 
@@ -26,18 +50,6 @@
 -->
   {% endfor %}
 
-<div class="post">
-<h1>Latest</h1>
-      <h2><a href="{% url 'post_detail' pk=post_last.pk %}">{{post_last.title}}</a></h2> 
-      <div class="date">
-         <p>published: {{ post_last.published_date}} </p>
-      </div>  
-      <p>
-      <a  href="{% url 'post_detail' pk=post_last.pk %}">
-      <img src="/static/ic-{{post_last.file_name}}" %}" >
-      </a>
-        {{post_last.abstract|linebreaksbr}}  
-</div>
      </div>
     </div>
    </div>

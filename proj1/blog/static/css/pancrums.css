@@ -4,12 +4,12 @@
 }
 
 .breadcrumb li{
-  display:inline;/*â°Ç…ï¿Ç‘ÇÊÇ§Ç…*/
+  display:inline;
   list-style: none;
-  font-weight: normal;/*ëæéö bold*/
+  font-weight: normal;
 }
 
-.breadcrumb li:after{/* > */
+.breadcrumb li:after{
   content: '->';
   padding: 0 3px;
   color: #000;
@@ -21,7 +21,7 @@
 
 .breadcrumb li a {
     text-decoration: none;
-    color: #000000;/*êF*/
+    color: #000000;
 }
 
 .breadcrumb li a:hover {

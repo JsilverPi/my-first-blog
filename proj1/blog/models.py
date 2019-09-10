@@ -37,8 +37,8 @@ class Post_M(models.Model):
 #
 class Comment(models.Model):
     post = models.ForeignKey('blog.Post_M',on_delete=models.CASCADE,related_name='comments')
-    author=models.CharField(max_length=200)
-    text=models.CharField(max_length=2000)
+    author=models.CharField(max_length=50)
+    text=models.CharField(max_length=500)
     created_date=models.DateTimeField(default=timezone.now)
     approved_comment=models.BooleanField(default=False)
 
