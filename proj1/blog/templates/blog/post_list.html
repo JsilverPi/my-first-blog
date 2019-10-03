@@ -11,6 +11,8 @@
 <div class="post">
  <div class="term">
    <h2>latest blogs</h2>
+
+       <p> -- click the image --</p>
  </div>
  {% for post in posts %}
    <div class="title">
@@ -24,38 +26,27 @@
       <a  href="{% url 'post_detail' pk=post.pk %}">
       <img src="/static/ic-{{post.file_name}}" %}" >
       </a>
-        {{post_last.abstract|linebreaksbr}} 
-       <p> -- click the image --</p>
+        {{post.abstract|linebreaksbr}} 
    
 </div>
  {% endfor %}
 
 <div class="term">
-   <h2>blog archive </h2>
+   <h2>archived blogs </h2>
        <p> -- click the image --</p>
 </div>
 
-  {% for post in posts  %}
-<!--  
+    <div class="archive" >
+  {% for post in posts_a  %}
 
-    <div class="post">
-      <h1><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h1> 
-      <div class="date">
-         <p>published: {{ post.published_date}} </p>
-      </div>  
-      <p>
--->
       <a  href="{% url 'post_detail' pk=post.pk %}">
-      <img src="/static/ic-{{post.file_name}}" %}" >
-  <!-- 2019/10/02 -->
-      {{post.title}}
+      <img src="/static/ic-{{post.file_name}}" %}" ></span>
       </a>
-<!-- 
-        {{post.abstract|linebreaksbr}}  
-      </p>
-    </div>
--->
+  <!-- 2019/10/02 -->
+      <span class="ic-list">{{post.title}}</span>
   {% endfor %}
+    <br>
+    </div>
 
      </div>
     </div>

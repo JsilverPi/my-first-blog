@@ -13,12 +13,11 @@ from  django.db.models import F
 def post_list(request):
 #
 #
-#  posts=Post_M.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+   posts_a=Post_M.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
 #  post_last=Post_M.objects.order_by('published_date').last()
    posts=Post_M.objects.order_by(F('published_date').desc(nulls_last=True)).all()[:3]
 #  return  render(request,'blog/post_list.html',{'posts': posts, 'post_last':post_last})
-   return  render(request,'blog/post_list.html',{'posts': posts })
-
+   return  render(request,'blog/post_list.html',{'posts': posts , 'posts_a':posts_a})
 def post_detail(request,pk):
   post=get_object_or_404(Post_M,pk=pk)
   return  render(request,'blog/post_detail.html',{'post': post})
