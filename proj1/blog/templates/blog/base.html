@@ -1,4 +1,5 @@
 {% load static %}
+<!doctype html>
 <html>
 <head>
 <title>fi.pythonanyware.com</title>
@@ -6,7 +7,7 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
 <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-<link rel="stylesheet" href="{% static 'css/pancrums.css' %}">
+<link rel="stylesheet" href="{% static 'css/menu.css' %}">
 </head>
 <body>
 <div class="page-header">
@@ -17,7 +18,17 @@
 {% else %}
   <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
 {% endif %}
-  <h1><a href="/">がらくたコレクション　ラベル、カード 、模様- My valueless collection</a></h1>
+  <h1><a href="/">形、色、模様 </a></h1>
+
+<!--###### 2020 0413 add --> 
+<nav>
+<ul>
+<li class="current"><a  href="{% url 'post_list' %}">ホーム</a></li>
+<li><a href="{% url 'post_blog' %}">blog</a></li>
+<li><a href="{% url 'post_members' %}">members</a></li>
+</ul>
+</nav>
+<!--#####-->
 </div>
 <div class="content container">
   <div class="row">

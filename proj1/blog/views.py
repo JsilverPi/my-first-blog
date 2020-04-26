@@ -10,12 +10,26 @@ from  django.db.models import F
 
 # Create your views here.
 
+def post_list_c(request):
+
+   posts_a=Post_M.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+   posts=Post_M.objects.order_by(F('published_date').desc(nulls_last=True)).all()[:1]
+   return  render(request,'blog/post_list_c.html',{'posts': posts , 'posts_a':posts_a})
+
+
+def post_blog(request):
+   return  render(request,'blog/post_blog.html')
+
+@login_required
+def post_members(request):
+   return  render(request,'blog/post_members.html')
+
 def post_list(request):
 #
 #
    posts_a=Post_M.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
 #  post_last=Post_M.objects.order_by('published_date').last()
-   posts=Post_M.objects.order_by(F('published_date').desc(nulls_last=True)).all()[:3]
+   posts=Post_M.objects.order_by(F('published_date').desc(nulls_last=True)).all()[:1]
 #  return  render(request,'blog/post_list.html',{'posts': posts, 'post_last':post_last})
    return  render(request,'blog/post_list.html',{'posts': posts , 'posts_a':posts_a})
 def post_detail(request,pk):
@@ -106,3 +120,4 @@ def  comment_remove(request,pk):
 
 def  about(request):
   return  render(request,'blog/about.html')
+
